@@ -30,10 +30,7 @@ def new_image_controller(path=expanduser("~"), output_dir=expanduser("~") + "/.f
     
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
-
-    constants["basedir"] = path # path da "hashare"
-    constants["outdir"] = output_dir # output path
-    # constants["hashfun"] = None
+        
     new_image(path, output_dir)
     print(constants)
     
