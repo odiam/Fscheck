@@ -4,7 +4,7 @@ import os
 
 class Tester(unittest.TestCase):
 
-    __testpath = os.curdir + os.path.sep
+    __testpath = os.getcwd() + os.path.sep
 
     def test1(self):
         '''
@@ -13,7 +13,7 @@ class Tester(unittest.TestCase):
         vuote.
         ' '''
         print("TEST1")
-        new_image_controller(self.__testpath+"test1", self.__testpath+"test1_out")
+        new_image_controller(path=self.__testpath+"test1", output_dir=self.__testpath+"test1_out")
         print("---------------\n\n")
 
     def test2(self):

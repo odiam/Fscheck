@@ -1,3 +1,8 @@
+# This script provides a random directory tree
+#
+# Usage: python random_tree_dir.py
+
+
 import random
 import os
 

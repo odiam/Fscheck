@@ -2,8 +2,6 @@ from hashfuncs import base_hash, blake2_hash
 import os
 
 constants = {
-    # Causa ricorsione, outidr non può stare qua. merda.
-    #"outdir":"",
     "basedir":"",
     "hashfun":blake2_hash
 }
@@ -38,11 +36,10 @@ def new_image(base, outdir):
 #   2) per creare un file immagine; in tal caso bisogna specificare
 #      il fatto che sia un file (file=True) e l'hash del contenuto (hash_result="blablabla")
 
-def add_out(output_path, file=False, hash_result=None):
+def add_out(output_path, file=False, hash_result=None, overwrite=True):
     if output_path == "" or output_path==None: raise Exception("[add_out function] Output path cannot be null")
 
-    if os.path.exists(output_path):
-        # TODO Se abilitata la sovrascrittura (per ora mi serve sempre)
+    if os.path.exists(output_path) and overwrite:
         os.remove(output_path)
 
     if file:
@@ -63,3 +60,13 @@ def makehash(filepath):
         content = f.read()
     f = constants["hashfun"]
     return f(content)
+
+
+# Return a dictionary in the form of
+# (file_path) => {
+#       last_modified: date
+#       current_hash: string
+#       last_hash: string
+# }
+def check_image(path, output):
+    return {}

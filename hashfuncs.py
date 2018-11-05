@@ -16,6 +16,6 @@ def blake2_hash(content):
     SIZE = 64
     return blake2b(content, digest_size=SIZE, key=key).hexdigest().encode("utf-8")
 
-# funzioen per debug
+# Debug : hash function === i(x) = x
 def base_hash(text):
     return text
